@@ -1,0 +1,18 @@
+services:
+  ui:
+    build: .
+    networks:
+      - proxy
+    labels:
+      traefik.enable: true
+      traefik.docker.network: proxy
+      traefik.http.routers.fungi-ui.entrypoints: websecure
+      traefik.http.routers.fungi-ui.rule: Host(`fungi.nezis.de`)
+      traefik.http.routers.fungi-ui.tls: true
+      traefik.http.routers.fungi-ui.tls.certresolver: http_resolver
+      traefik.http.routers.fungi-ui.service: fungi-ui
+      traefik.http.services.fungi-ui.loadbalancer.server.port: 80
+
+networks:
+  proxy:
+    external: true

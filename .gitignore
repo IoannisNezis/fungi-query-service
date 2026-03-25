@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Editor
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Playwright
+.playwright-mcp/
+
+# Logs
+*.log
+/.claude
